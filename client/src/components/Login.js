@@ -9,6 +9,8 @@ import { ToastContainer, toast,Slide  } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import BaseUrl from "../url.js"
 
+import Cookies from 'js-cookie';
+
 function Login() {
 
   const { state, updateState } = useContext(MyContext);
@@ -19,6 +21,14 @@ function Login() {
   const [crtpassword, setcrtpassword] = useState(null);
   const [checkemail, setcheckemail] = useState(null);
   const [userId, setuserId] = useState('');
+
+
+  
+    const handleSetCookie = (token) => {
+      Cookies.set('token', `${token}`, { expires: 7, path: '/' });
+      // alert('Cookie set successfully using js-cookie!');
+    };
+  
   const handleUserData = async (e) => {
     e.preventDefault();
 
@@ -30,6 +40,14 @@ function Login() {
         withCredentials: true,
 
       });
+
+
+
+      handleSetCookie(response.data.token);
+
+
+
+
       updateState(true);
       console.log('Response:', response.data);
       setuserId(response.data._id);
