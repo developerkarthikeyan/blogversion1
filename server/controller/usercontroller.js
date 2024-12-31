@@ -61,7 +61,7 @@ res.cookie('token', token, {
     secure:true
      // Makes the cookie inaccessible to JavaScript on the client side
 })
-res.status(200).json(userexsists);
+res.status(200).json({userexsists,token});
 
 }
 
