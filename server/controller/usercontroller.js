@@ -53,8 +53,8 @@ const Loginuser=async(req,res)=>{
     const token = jwt.sign({ id:userexsists._id },process.env.JWT_SECRET,{ expiresIn: '2d' });
 console.log(" logIN token ",token);
 
-res.setHeader('Access-Control-Allow-Origin', 'https://front-endblog.vercel.app');
-res.setHeader('Access-Control-Allow-Credentials', 'true');
+// res.setHeader('Access-Control-Allow-Origin', 'https://front-endblog.vercel.app');
+// res.setHeader('Access-Control-Allow-Credentials', 'true');
 
 
 
