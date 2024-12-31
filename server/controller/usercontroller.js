@@ -16,7 +16,7 @@ const registerUser=async(req,res)=>{
             password:hashPassword
         })
         await newUser.save();
-        console.log(newUser)
+        // console.log(newUser)
     const token = jwt.sign({ id:newUser._id },process.env.JWT_SECRET, { expiresIn: '1h' });
     console.log(token);
     res.status(200).json({
@@ -51,7 +51,7 @@ const Loginuser=async(req,res)=>{
  
      }
     const token = jwt.sign({ id:userexsists._id },process.env.JWT_SECRET,{ expiresIn: '2d' });
-console.log("token ",token);
+console.log(" logIN token ",token);
 
 res.cookie('token', token, {
 
