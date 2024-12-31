@@ -37,22 +37,21 @@ const registerUser=async(req,res)=>{
 
 const Loginuser=async(req,res)=>{
     const{email,password}=req.body;  
-    console.log(req.body)
+    // console.log(req.body)
     const userexsists= await User.findOne({email});
     if(!userexsists){
-    console.log("user does not exists");
+   
 
         return res.status(404).json({message:"User does not exsists"});
     }
     const ismatch=await bycrypt.compare(password,userexsists.password);
 
     if(!ismatch){
-        console.log("incorrect password");
         return res.status(401).json({error:"incorrect password"})
  
      }
     const token = jwt.sign({ id:userexsists._id },process.env.JWT_SECRET,{ expiresIn: '2d' });
-console.log(token);
+console.log("token ",token);
 
 res.cookie('token', token, {
 

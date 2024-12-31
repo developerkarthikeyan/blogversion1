@@ -22,16 +22,16 @@ const profileuploadHandler = upload.single('file');
 
 const Createprofilehandler=async(req,res)=>{
 const{name,position,aboutyou,userid,imageURL}=req.body;
-console.log(req.body)
+// console.log(req.body)
 let isimageURL;
 if(imageURL){
     isimageURL=imageURL;
-    console.log("no image");
+    // console.log("no image");
 }
 
 else{
     imageURL= "noimage";
-console.log("elsepart")
+// console.log("elsepart")
     
 }
 
@@ -47,12 +47,12 @@ try{
     });
 
 
-    console.log(Newprofile);
+    // console.log(Newprofile);
    return res.status(200).json(Newprofile);
 
 }catch(err){
 res.status(400).json({message:"sever errror"});
-console.log(err)
+// console.log(err)
 }
 
 

@@ -30,9 +30,9 @@ async function CreatePost(req, res) {
     try { 
 
     const {title,content,name,userid,profileid,imageURL} = req.body;
-        console.log(title,content,req._id);
-        console.log(req.body);
-        console.log(userid);
+        // console.log(title,content,req._id);
+        // console.log(req.body);
+        // console.log(userid);
 const newBlog=await savePost.create({
     title,
     content,
@@ -51,18 +51,18 @@ const newBlog=await savePost.create({
         );
 
         // Log the received data (title, content, and file info)
-        console.log('Title:', title);
-        console.log('Content:', content);
+        // console.log('Title:', title);
+        // console.log('Content:', content);
                 // console.log('File:', req.file);
                 const populatedPost = await savePost.findById(newBlog._id).populate("profileid")
 
-console.log("hi",populatedPost);
+// console.log("hi",populatedPost);
 
 
         // Further logic to store the post in your database can go here
         res.status(201).json(populatedPost)
     } catch (error) {
-        console.error(error);
+        // console.error(error);
         res.status(500).json({ message: "Failed to create post", error });
     }
 }

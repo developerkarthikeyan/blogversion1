@@ -9,11 +9,11 @@ async function singleBlog(req,res){
     try{
         const User=await PostModel.findById({_id:id}).populate("profileid");
     
-       console.log(User._id)
+    //    console.log(User._id)
     //    const {userid}=User;
     //    const userdetails=await profielmodel.find({userid});
     //    console.log(userdetails)
-        console.log(User);
+        // console.log(User);
             res.status(200).json(User);
         
     }catch(err){
