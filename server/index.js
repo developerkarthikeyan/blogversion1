@@ -28,7 +28,7 @@ console.log(__dirname);
 app.use(cookieParser()); 
 
 app.use(cors(
-    { origin: 'https://mern-blog-six-theta.vercel.app/', // Allow requests from this origin
+    { origin: 'https://front-endblog.vercel.app/', // Allow requests from this origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these HTTP methods
   credentials: true,  
     }
