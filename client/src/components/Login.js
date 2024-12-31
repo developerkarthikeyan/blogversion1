@@ -24,10 +24,10 @@ function Login() {
 
 
   
-    const handleSetCookie = (token) => {
-      Cookies.set('token', `${token}`, { expires: 7, path: '/' });
-      // alert('Cookie set successfully using js-cookie!');
-    };
+    // const handleSetCookie = (token) => {
+    //   Cookies.set('token', `${token}`, { expires: 7, path: '/' });
+    //   // alert('Cookie set successfully using js-cookie!');
+    // };
   
   const handleUserData = async (e) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ function Login() {
 
 
 
-      handleSetCookie(response.data.token);
+      // handleSetCookie(response.data.token);
 
 
 

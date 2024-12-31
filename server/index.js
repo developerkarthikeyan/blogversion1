@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname,"","public")))
 console.log(__dirname);
 
 app.use(cookieParser()); 
-
+//
 app.use(cors(
     { origin: 'https://front-endblog.vercel.app', // Allow requests from this origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these HTTP methods

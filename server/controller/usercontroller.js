@@ -53,13 +53,22 @@ const Loginuser=async(req,res)=>{
     const token = jwt.sign({ id:userexsists._id },process.env.JWT_SECRET,{ expiresIn: '2d' });
 console.log(" logIN token ",token);
 
+res.setHeader('Access-Control-Allow-Origin', 'https://front-endblog.vercel.app');
+res.setHeader('Access-Control-Allow-Credentials', 'true');
+
+
+
+
 res.cookie('token', token, {
 
     expires:new Date(Date.now()+90+90*24*60*60*1000),
     httpsOnly:true,
-    secure:true
+    secure:true,
+
+      sameSite:None
      // Makes the cookie inaccessible to JavaScript on the client side
 })
+console.log(cookie);
 res.status(200).json({userexsists,token});
 
 }
